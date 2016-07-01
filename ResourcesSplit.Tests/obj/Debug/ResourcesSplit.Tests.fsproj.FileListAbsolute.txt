@@ -1,7 +1,0 @@
-C:\Projects\ResourcesSplit\ResourcesSplit.Tests\bin\Debug\ResourcesSplit.Tests.XML
-C:\Projects\ResourcesSplit\ResourcesSplit.Tests\bin\Debug\ResourcesSplit.Tests.dll
-C:\Projects\ResourcesSplit\ResourcesSplit.Tests\bin\Debug\ResourcesSplit.Tests.pdb
-C:\Projects\ResourcesSplit\ResourcesSplit.Tests\bin\Debug\FSharp.Core.dll
-C:\Projects\ResourcesSplit\ResourcesSplit.Tests\bin\Debug\FSharp.Core.xml
-C:\Projects\ResourcesSplit\ResourcesSplit.Tests\obj\Debug\ResourcesSplit.Tests.dll
-C:\Projects\ResourcesSplit\ResourcesSplit.Tests\obj\Debug\ResourcesSplit.Tests.pdb
