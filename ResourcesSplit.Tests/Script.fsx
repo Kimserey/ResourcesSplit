@@ -57,3 +57,9 @@ let resources =
 
 (Groups.Empty, resources)
 ||> List.fold (fun groups resource -> Groups.Place resource groups)
+
+
+let (x, y, z) = ["1"; "2"], ["1"], ["1", "2", "3"]
+
+x
+|> List.zip3 y z
