@@ -17981,33 +17981,34 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
 ;
 (function()
 {
- var Global=this,Runtime=this.IntelliFactory.Runtime,List,ResourcesSplit,Web,Domain,Resource,UI,Next,ListModel,Doc,AttrProxy,Level,Continent,Groups,Seq,Operators,Unchecked,T,PrintfHelpers,Client;
+ var Global=this,Runtime=this.IntelliFactory.Runtime,List,ResourcesSplit,Web,Domain,Resource,UI,Next,ListModel,Var,Doc,AttrProxy,Level,Continent,T,Groups,Seq,Operators,Unchecked,PrintfHelpers,Client;
  Runtime.Define(Global,{
   ResourcesSplit:{
    Web:{
     Client:{
      main:Runtime.Field(function()
      {
-      var arg00,projection,list,arg10,resources,arg20,x,x1;
+      var arg00,arg10,resources,newName,arg20,ats,x,arg201,x1;
       arg00=function(r)
       {
        return r.Name;
       };
-      projection=function(r)
-      {
-       return r.Name;
-      };
-      list=List.ofArray([Resource.Default("Tom"),Resource.Default("Lego"),Resource.Default("Sam"),Resource.Default("Tesla"),Resource.Default("Mono"),Resource.Default("Garcia"),Resource.Default("Lola"),Resource.Default("Tremon"),Resource.Default("Poka")]);
-      arg10=List.sortBy(projection,list);
+      arg10=List.ofArray([Resource.Green("Jlaw"),Resource.Green("Eyeball"),Resource.Green("Ah fat"),Resource.Green("Nkemp"),Resource.Green("Roush"),Resource.Green("Lunt"),Resource.Green("Dys"),Resource.Green("Grill"),Resource.Green("Perfect"),Resource.Green("Boots"),Resource.Green("Slevin"),Resource.Green("Pawlik"),Resource.Yellow("Ethan"),Resource.Yellow("Bx"),Resource.Yellow("Azeda"),Resource.Yellow("Rdwing"),Resource.Yellow("Wartech"),Resource.Yellow("Adodd"),Resource.Yellow("Jawilki"),Resource.Yellow("Johnjohn"),Resource.Red("Bongval"),Resource.Red("Ssumit"),Resource.Red("Che"),Resource.Red("Felichque"),Resource.Red("Wong"),Resource.Red("Ultraduck"),Resource.Red("Adiam"),Resource.Red("Atta"),Resource.Red("Rome")]);
       resources=ListModel.Create(arg00,arg10);
+      newName=Var.Create("");
       arg20=List.ofArray([Doc.TextNode("Place a resource where there is the less resources based on Level. When groups have equal number of resources and decision cannot be made, place a resource where there is the less resource of the same Continent")]);
       Doc.RunById("explanation",Doc.Element("pre",[],arg20));
+      ats=List.ofArray([AttrProxy.Create("style","margin: 15px 0")]);
       x=resources.get_View();
-      Doc.RunById("resources",Doc.Convert(function(resource)
+      arg201=function()
       {
-       var ats;
-       ats=List.ofArray([AttrProxy.Create("style","margin: 15px 0")]);
-       return Doc.Element("div",ats,List.ofArray([Doc.Element("div",List.ofArray([AttrProxy.Create("style","width: 100px; display: inline-block; margin: 0 5px;")]),List.ofArray([Doc.TextNode(resource.Name)])),Doc.Select(List.ofArray([AttrProxy.Create("style","width: 100px; margin: 0 5px;")]),function(value)
+       return resources.Add(Resource.Green(Var.Get(newName)));
+      };
+      Doc.RunById("resources",Doc.Element("div",ats,List.ofArray([Doc.Convert(function(resource)
+      {
+       var ats1;
+       ats1=List.ofArray([AttrProxy.Create("style","height: 2em;")]);
+       return Doc.Element("div",ats1,List.ofArray([Doc.Element("div",List.ofArray([AttrProxy.Create("style","width: 100px; display: inline-block; margin: 0 5px;")]),List.ofArray([Doc.TextNode(resource.Name)])),Doc.Select(List.ofArray([AttrProxy.Create("style","width: 100px; margin: 0 5px;")]),function(value)
        {
         return Global.String(value);
        },Level.get_All(),resources.LensInto(function(r)
@@ -18040,11 +18041,15 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
          });
         };
        },resource.Name))]));
-      },x));
+      },x),Doc.Element("div",Runtime.New(T,{
+       $:0
+      }),List.ofArray([Doc.Input(List.ofArray([AttrProxy.Create("placeholder","Enter new resource name"),AttrProxy.Create("style","margin: 1em 1em 1em 0;")]),newName),Doc.Button("Add",Runtime.New(T,{
+       $:0
+      }),arg201)]))])));
       x1=resources.get_View();
       return Doc.RunById("result",Doc.BindView(function(resources1)
       {
-       var x2,y,groups,mapping,list2,x3,max,tableRow,stats,arg20e;
+       var x2,y,groups,mapping,list1,x3,max,tableRow,stats,arg20f;
        x2=Groups.get_Empty();
        y=Seq.toList(resources1);
        groups=Seq.fold(function(groups1)
@@ -18054,12 +18059,12 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
          return Groups.Place(resource,groups1);
         };
        },x2,y);
-       mapping=function(list1)
+       mapping=function(list)
        {
-        return Seq.length(list1);
+        return Seq.length(list);
        };
-       list2=List.ofArray([groups.A,groups.B,groups.C]);
-       x3=List.map(mapping,list2);
+       list1=List.ofArray([groups.A,groups.B,groups.C]);
+       x3=List.map(mapping,list1);
        max=List.max(x3);
        tableRow=Seq.toList(Seq.delay(function()
        {
@@ -18070,73 +18075,73 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
        }));
        stats=function(resources2)
        {
-        var arg201,arg202,arg203,arg204,arg205,arg206,arg207,arg208,arg209,arg20a,arg20b,arg20c,arg20d;
-        arg202=List.ofArray([Doc.TextNode("Good")]);
-        arg203=List.ofArray([Doc.TextNode(Global.String(Seq.length(List.filter(function(r)
+        var arg202,arg203,arg204,arg205,arg206,arg207,arg208,arg209,arg20a,arg20b,arg20c,arg20d,arg20e;
+        arg203=List.ofArray([Doc.TextNode("Green")]);
+        arg204=List.ofArray([Doc.TextNode(Global.String(Seq.length(List.filter(function(r)
         {
          return Unchecked.Equals(r.Level,Runtime.New(Level,{
           $:0
          }));
         },resources2))))]);
-        arg204=List.ofArray([Doc.TextNode("Normal")]);
-        arg205=List.ofArray([Doc.TextNode(Global.String(Seq.length(List.filter(function(r)
+        arg205=List.ofArray([Doc.TextNode("Yellow")]);
+        arg206=List.ofArray([Doc.TextNode(Global.String(Seq.length(List.filter(function(r)
         {
          return Unchecked.Equals(r.Level,Runtime.New(Level,{
           $:1
          }));
         },resources2))))]);
-        arg206=List.ofArray([Doc.TextNode("Poor")]);
-        arg207=List.ofArray([Doc.TextNode(Global.String(Seq.length(List.filter(function(r)
+        arg207=List.ofArray([Doc.TextNode("Red")]);
+        arg208=List.ofArray([Doc.TextNode(Global.String(Seq.length(List.filter(function(r)
         {
          return Unchecked.Equals(r.Level,Runtime.New(Level,{
           $:2
          }));
         },resources2))))]);
-        arg208=List.ofArray([Doc.TextNode("Asia")]);
-        arg209=List.ofArray([Doc.TextNode(Global.String(Seq.length(List.filter(function(r)
+        arg209=List.ofArray([Doc.TextNode("Asia")]);
+        arg20a=List.ofArray([Doc.TextNode(Global.String(Seq.length(List.filter(function(r)
         {
          return Unchecked.Equals(r.Continent,Runtime.New(Continent,{
           $:0
          }));
         },resources2))))]);
-        arg20a=List.ofArray([Doc.TextNode("Pacific")]);
-        arg20b=List.ofArray([Doc.TextNode(Global.String(Seq.length(List.filter(function(r)
+        arg20b=List.ofArray([Doc.TextNode("Pacific")]);
+        arg20c=List.ofArray([Doc.TextNode(Global.String(Seq.length(List.filter(function(r)
         {
          return Unchecked.Equals(r.Continent,Runtime.New(Continent,{
           $:2
          }));
         },resources2))))]);
-        arg20c=List.ofArray([Doc.TextNode("Europe")]);
-        arg20d=List.ofArray([Doc.TextNode(Global.String(Seq.length(List.filter(function(r)
+        arg20d=List.ofArray([Doc.TextNode("Europe")]);
+        arg20e=List.ofArray([Doc.TextNode(Global.String(Seq.length(List.filter(function(r)
         {
          return Unchecked.Equals(r.Continent,Runtime.New(Continent,{
           $:1
          }));
         },resources2))))]);
-        arg201=List.ofArray([Doc.Element("dt",[],arg202),Doc.Element("dd",[],arg203),Doc.Element("dt",[],arg204),Doc.Element("dd",[],arg205),Doc.Element("dt",[],arg206),Doc.Element("dd",[],arg207),Doc.Element("dt",[],arg208),Doc.Element("dd",[],arg209),Doc.Element("dt",[],arg20a),Doc.Element("dd",[],arg20b),Doc.Element("dt",[],arg20c),Doc.Element("dd",[],arg20d)]);
-        return Doc.Element("dl",[],arg201);
+        arg202=List.ofArray([Doc.Element("dt",[],arg203),Doc.Element("dd",[],arg204),Doc.Element("dt",[],arg205),Doc.Element("dd",[],arg206),Doc.Element("dt",[],arg207),Doc.Element("dd",[],arg208),Doc.Element("dt",[],arg209),Doc.Element("dd",[],arg20a),Doc.Element("dt",[],arg20b),Doc.Element("dd",[],arg20c),Doc.Element("dt",[],arg20d),Doc.Element("dd",[],arg20e)]);
+        return Doc.Element("dl",[],arg202);
        };
-       arg20e=Seq.toList(Seq.delay(function()
+       arg20f=Seq.toList(Seq.delay(function()
        {
-        var arg201,arg202,arg203,arg204;
-        arg202=List.ofArray([Doc.TextNode("Group A")]);
-        arg203=List.ofArray([Doc.TextNode("Group B")]);
-        arg204=List.ofArray([Doc.TextNode("Group C")]);
-        arg201=List.ofArray([Doc.Element("th",[],arg202),Doc.Element("th",[],arg203),Doc.Element("th",[],arg204)]);
-        return Seq.append([Doc.Element("tr",[],arg201)],Seq.delay(function()
+        var arg202,arg203,arg204,arg205;
+        arg203=List.ofArray([Doc.TextNode("Group A")]);
+        arg204=List.ofArray([Doc.TextNode("Group B")]);
+        arg205=List.ofArray([Doc.TextNode("Group C")]);
+        arg202=List.ofArray([Doc.Element("th",[],arg203),Doc.Element("th",[],arg204),Doc.Element("th",[],arg205)]);
+        return Seq.append([Doc.Element("tr",[],arg202)],Seq.delay(function()
         {
          return Seq.append(List.map(function(row)
          {
           var source;
           source=List.map(function(_arg1)
           {
-           var arg205,r;
+           var arg206,r;
            if(_arg1.$==0)
             {
-             arg205=Runtime.New(T,{
+             arg206=Runtime.New(T,{
               $:0
              });
-             return Doc.Element("td",[],arg205);
+             return Doc.Element("td",[],arg206);
             }
            else
             {
@@ -18147,16 +18152,16 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
           return Doc.Element("tr",[],source);
          },tableRow),Seq.delay(function()
          {
-          var arg205,arg206,arg207,arg208;
-          arg206=List.ofArray([stats(groups.A)]);
-          arg207=List.ofArray([stats(groups.B)]);
-          arg208=List.ofArray([stats(groups.C)]);
-          arg205=List.ofArray([Doc.Element("td",[],arg206),Doc.Element("td",[],arg207),Doc.Element("td",[],arg208)]);
-          return[Doc.Element("tr",[],arg205)];
+          var arg206,arg207,arg208,arg209;
+          arg207=List.ofArray([stats(groups.A)]);
+          arg208=List.ofArray([stats(groups.B)]);
+          arg209=List.ofArray([stats(groups.C)]);
+          arg206=List.ofArray([Doc.Element("td",[],arg207),Doc.Element("td",[],arg208),Doc.Element("td",[],arg209)]);
+          return[Doc.Element("tr",[],arg206)];
          }));
         }));
        }));
-       return Doc.Element("table",[],arg20e);
+       return Doc.Element("table",[],arg20f);
       },x1));
      })
     },
@@ -18316,19 +18321,19 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
          if(loop[1].$==2)
           {
            loop[0]=0;
-           loop[1]="Poor";
+           loop[1]="Red";
           }
          else
           {
            if(loop[1].$==1)
             {
              loop[0]=0;
-             loop[1]="Normal";
+             loop[1]="Yellow";
             }
            else
             {
              loop[0]=0;
-             loop[1]="Good";
+             loop[1]="Green";
             }
           }
         }
@@ -18351,12 +18356,36 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
       }
      }),
      Resource:Runtime.Class({},{
-      Default:function(name)
+      Green:function(name)
       {
        return Runtime.New(Resource,{
         Name:name,
         Level:Runtime.New(Level,{
          $:0
+        }),
+        Continent:Runtime.New(Continent,{
+         $:0
+        })
+       });
+      },
+      Red:function(name)
+      {
+       return Runtime.New(Resource,{
+        Name:name,
+        Level:Runtime.New(Level,{
+         $:2
+        }),
+        Continent:Runtime.New(Continent,{
+         $:0
+        })
+       });
+      },
+      Yellow:function(name)
+      {
+       return Runtime.New(Resource,{
+        Name:name,
+        Level:Runtime.New(Level,{
+         $:1
         }),
         Continent:Runtime.New(Continent,{
          $:0
@@ -18378,15 +18407,16 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
   UI=Runtime.Safe(Global.WebSharper.UI);
   Next=Runtime.Safe(UI.Next);
   ListModel=Runtime.Safe(Next.ListModel);
+  Var=Runtime.Safe(Next.Var);
   Doc=Runtime.Safe(Next.Doc);
   AttrProxy=Runtime.Safe(Next.AttrProxy);
   Level=Runtime.Safe(Domain.Level);
   Continent=Runtime.Safe(Domain.Continent);
+  T=Runtime.Safe(List.T);
   Groups=Runtime.Safe(Domain.Groups);
   Seq=Runtime.Safe(Global.WebSharper.Seq);
   Operators=Runtime.Safe(Global.WebSharper.Operators);
   Unchecked=Runtime.Safe(Global.WebSharper.Unchecked);
-  T=Runtime.Safe(List.T);
   PrintfHelpers=Runtime.Safe(Global.WebSharper.PrintfHelpers);
   return Client=Runtime.Safe(Web.Client);
  });
