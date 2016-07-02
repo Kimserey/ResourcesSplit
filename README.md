@@ -12,7 +12,7 @@ Each level has a score attributed 1-2-3. A resource is placed where:
 
 Select the level and continent which matches the resources
 
-![]()
+![resources](https://raw.githubusercontent.com/Kimserey/ResourcesSplit/master/resources.png)
 
 View the result partitioning based on Level and Continent
 
