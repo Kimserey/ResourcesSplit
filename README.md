@@ -16,4 +16,4 @@ Select the level and continent which matches the resources
 
 View the result partitioning based on Level and Continent
 
-![]()
+![result](https://raw.githubusercontent.com/Kimserey/ResourcesSplit/master/result.png)
