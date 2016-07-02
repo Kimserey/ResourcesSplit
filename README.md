@@ -2,6 +2,8 @@
 
 An application to split resources based on Level and Continent.
 
+[http://www.kimsereylam.com/ResourcesSplit/](http://www.kimsereylam.com/ResourcesSplit/)
+
 ## 1. The partitioning strategy
 
 Each level has a score attributed 1-2-3. A resource is placed where:
