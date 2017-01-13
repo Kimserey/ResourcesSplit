@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>ResourcesSplit.Web</title>
@@ -6,22 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="Content/ResourcesSplit.Web.css" />
     <script type="text/javascript" src="Content/ResourcesSplit.Web.head.js"></script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <style>
-        table {
-            border-collapse: collapse;
-        }
-
-        table, th, td {
-            border: 1px solid black;
-        }
-
-        td {
-            width: 100px;
-            line-height: 2em;
-            text-align: center;
-        }
-
         .small-text {
             font-size:small;
             padding: 0 2px;
@@ -30,16 +16,29 @@
         dt {
             font-weight:bold;
         }
+
+        .title {
+            text-align: center;
+        }
+
+        .content {
+            padding: 1em;
+        }
+
     </style>
 </head>
 <body>
-    <h1>Resources split</h1>
-    <h2>Repartition method</h2>
-    <div id="explanation"></div>
-    <h2>Resources</h2>
-    <div id="resources"></div>
-    <h2>Result</h2>
-    <div id="result"></div>
-    <script type="text/javascript" src="Content/ResourcesSplit.Web.min.js"></script>
+    <h1 class="title">Resources split</h1>
+    <div class="content">
+        <h2 class="mb-3">Repartition method</h2>
+        <p>Place a resource where there is the less resources based on Level. When groups have equal number of resources and decision cannot be made, place a resource where there is the less resource of the same Continent.</p>
+        <hr/>
+        <h2 class="mb-3">Resources</h2>
+        <div id="resources"></div>
+        <hr />
+        <h2 class="mb-3">Result</h2>
+        <div id="result"></div>
+    </div>
+    <script type="text/javascript" src="Content/ResourcesSplit.Web.js"></script>
 </body>
 </html>
