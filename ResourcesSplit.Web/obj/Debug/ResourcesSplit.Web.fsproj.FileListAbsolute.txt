@@ -1,5 +1,3 @@
-C:\Projects\ResourcesSplit\ResourcesSplit.Web\obj\Debug\ResourcesSplit.Web.dll
-C:\Projects\ResourcesSplit\ResourcesSplit.Web\obj\Debug\ResourcesSplit.Web.pdb
 C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\ResourcesSplit.Web.dll.config
 C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\ResourcesSplit.Web.dll
 C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\ResourcesSplit.Web.pdb
@@ -11,3 +9,5 @@ C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\IntelliFactory.Xml.xml
 C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\FSharp.Core.xml
 C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\WebSharper.UI.Next.xml
 C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\WebSharper.UI.Next.Templating.xml
+C:\Projects\ResourcesSplit\ResourcesSplit.Web\obj\Debug\ResourcesSplit.Web.dll
+C:\Projects\ResourcesSplit\ResourcesSplit.Web\obj\Debug\ResourcesSplit.Web.pdb

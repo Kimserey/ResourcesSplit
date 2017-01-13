@@ -83,47 +83,73 @@ module Domain =
             | "B" -> { x with B = resource :: x.B }
             | _   -> { x with C = resource :: x.C }
 
+    let initResources =
+        [ Resource.Green "Jlaw"
+          Resource.Green "Eyeball"
+          Resource.Green "Ah fat"
+          Resource.Green "Nkemp"
+          Resource.Green "Roush"
+          Resource.Green "Lunt"
+          Resource.Green "Dys"
+          Resource.Green "Grill"
+          Resource.Green "Perfect"
+          Resource.Green "Boots"
+          Resource.Green "Slevin"
+          Resource.Green "Pawlik"
+          
+          Resource.Yellow "Ethan"
+          Resource.Yellow "Bx"
+          Resource.Yellow "Azeda"
+          Resource.Yellow "Rdwing"
+          Resource.Yellow "Wartech"
+          Resource.Yellow "Adodd"
+          Resource.Yellow "Jawilki"
+          Resource.Yellow "Johnjohn"
+          
+          Resource.Red "Bongval"
+          Resource.Red "Ssumit"
+          Resource.Red "Che"
+          Resource.Red "Felichque"
+          Resource.Red "Wong"
+          Resource.Red "Ultraduck"
+          Resource.Red "Adiam"
+          Resource.Red "Atta"
+          Resource.Red "Rome" ]
+
+[<JavaScript>]
+module Layout =
+    open Domain 
+
+    let stats resources =
+        dl [ dt [ text "Green" ]; dd [ text (resources |> List.filter (fun r -> r.Level = Green) |> List.length |> string) ] 
+             dt [ text "Yellow" ]; dd [ text (resources |> List.filter (fun r -> r.Level = Yellow) |> List.length |> string) ] 
+             dt [ text "Red" ]; dd [ text (resources |> List.filter (fun r -> r.Level = Red) |> List.length |> string) ]
+             dt [ text "Asia" ]; dd [ text (resources |> List.filter (fun r -> r.Continent = Asia) |> List.length |> string) ]
+             dt [ text "Pacific" ]; dd [ text (resources |> List.filter (fun r -> r.Continent = Pacific) |> List.length |> string) ]
+             dt [ text "Europe" ]; dd [ text (resources |> List.filter (fun r -> r.Continent = Europe) |> List.length |> string) ] ]
+
+
 [<JavaScript>]
 module Client =
+    open WebSharper.UI.Next.Storage
     open Domain
-    
+    open System
+    open Layout
+
+    let resources =
+        ListModel.CreateWithStorage (fun r-> r.Name) (LocalStorage "local-storage" (Serializer.Default<Resource>))
+
+    let initResources() =
+        initResources
+        |> List.iter resources.Add
+
     let main =
-        let resources = 
-            ListModel.Create (fun r -> r.Name) 
-                [ Resource.Green "Jlaw"
-                  Resource.Green "Eyeball"
-                  Resource.Green "Ah fat"
-                  Resource.Green "Nkemp"
-                  Resource.Green "Roush"
-                  Resource.Green "Lunt"
-                  Resource.Green "Dys"
-                  Resource.Green "Grill"
-                  Resource.Green "Perfect"
-                  Resource.Green "Boots"
-                  Resource.Green "Slevin"
-                  Resource.Green "Pawlik"
-                  
-                  Resource.Yellow "Ethan"
-                  Resource.Yellow "Bx"
-                  Resource.Yellow "Azeda"
-                  Resource.Yellow "Rdwing"
-                  Resource.Yellow "Wartech"
-                  Resource.Yellow "Adodd"
-                  Resource.Yellow "Jawilki"
-                  Resource.Yellow "Johnjohn"
-                  
-                  Resource.Red "Bongval"
-                  Resource.Red "Ssumit"
-                  Resource.Red "Che"
-                  Resource.Red "Felichque"
-                  Resource.Red "Wong"
-                  Resource.Red "Ultraduck"
-                  Resource.Red "Adiam"
-                  Resource.Red "Atta"
-                  Resource.Red "Rome" ]
-        
-        let newName = Var.Create ""
+        let newName = 
+            Var.Create ""
             
+        let reset() =
+            newName.Value <- ""
+
         divAttr
             [ attr.style "margin: 15px 0" ]
             [ resources.View
@@ -134,10 +160,30 @@ module Client =
                       Doc.Select [ attr.style "width: 100px; margin: 0 5px;" ] string Level.All (resources.LensInto (fun r -> r.Level) (fun r l -> { r with Level = l }) resource.Name)
                       Doc.Select [ attr.style "width: 100px; margin: 0 5px;" ] string Continent.All (resources.LensInto (fun r -> r.Continent) (fun r c -> { r with Continent = c }) resource.Name)
                 ])
-              divAttr 
-                [] 
-                [ Doc.Input [ attr.placeholder "Enter new resource name"; attr.style "margin: 1em 1em 1em 0;" ] newName :> Doc 
-                  Doc.Button "Add" [] (fun () -> resources.Add (Resource.Green newName.Value)) ] :> Doc ]
+
+              form
+                [ divAttr
+                    [ attr.``class`` "form-group" ] 
+                    [ Doc.Input 
+                        [ attr.placeholder "Enter new resource name"
+                          attr.``class`` "form-control"
+                          attr.style "max-width: 300px" ] 
+                        newName ]
+                  divAttr 
+                    [ attr.``class`` "mt-3" ]
+                    [ Doc.Button "Add" 
+                        [ attr.``class`` "btn btn-primary mr-3"
+                          attr.disabledDynPred (View.Const "true") (newName.View |> View.Map (fun v -> String.IsNullOrWhiteSpace v)) ] 
+                        (fun () -> resources.Add (Resource.Green newName.Value); reset())
+
+                      Doc.Button "Remove" 
+                        [ attr.``class`` "btn btn-warning mr-3"
+                          attr.disabledDynPred (View.Const "true") (newName.View |> View.Map (fun v -> String.IsNullOrWhiteSpace v)) ] 
+                        (fun () -> resources.RemoveByKey newName.Value; reset()) 
+                      
+                      Doc.Button "Reset to original" 
+                        [ attr.``class`` "btn btn-danger"] 
+                        (fun () -> resources.Clear(); initResources()) ] ] ]
         |> Doc.RunById "resources"
 
         resources.View
@@ -152,22 +198,9 @@ module Client =
             let tableRow =
                 [ for i in [0..max-1] do yield [ List.tryItem i groups.A; List.tryItem i groups.B; List.tryItem i groups.C ] ]
             
-            let stats resources =
-                dl [ dt [ text "Green" ]
-                     dd [ text (resources |> List.filter (fun r -> r.Level = Green) |> List.length |> string) ] 
-                     dt [ text "Yellow" ]
-                     dd [ text (resources |> List.filter (fun r -> r.Level = Yellow) |> List.length |> string) ] 
-                     dt [ text "Red" ]
-                     dd [ text (resources |> List.filter (fun r -> r.Level = Red) |> List.length |> string) ]
-                     dt [ text "Asia" ]
-                     dd [ text (resources |> List.filter (fun r -> r.Continent = Asia) |> List.length |> string) ]
-                     dt [ text "Pacific" ]
-                     dd [ text (resources |> List.filter (fun r -> r.Continent = Pacific) |> List.length |> string) ]
-                     dt [ text "Europe" ] 
-                     dd [ text (resources |> List.filter (fun r -> r.Continent = Europe) |> List.length |> string) ] ]
-
             let table =
-                table 
+                tableAttr
+                    [ attr.``class`` "table table-striped table-bordered" ] 
                     [ yield tr [ th [ text "Group A" ]; th [ text "Group B" ]; th [ text "Group C" ] ] :> Doc
                       yield! (tableRow |> List.map(fun row -> tr (row |> List.map (function Some r -> tdAttr [ attr.style ("background-color:" + Level.Color r.Level) ] [ text r.Name; spanAttr [ attr.``class`` "small-text" ] [ text (sprintf "(%s)" (string r.Continent)) ] ] | None -> td []) |> Seq.cast)) |> Seq.cast) 
                       yield tr [ td [ stats groups.A ]; td [ stats groups.B ]; td [ stats groups.C ] ] :> Doc ]
