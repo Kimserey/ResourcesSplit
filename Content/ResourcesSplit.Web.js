@@ -18004,7 +18004,7 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
       {
        return Var1.Set(newName,"");
       };
-      ats=List.ofArray([AttrProxy.Create("style","margin: 15px 0")]);
+      ats=List.ofArray([AttrProxy.Create("class","container-fluid")]);
       x=Client.resources().get_View();
       ats2=List.ofArray([AttrProxy.Create("class","mt-3")]);
       arg203=function()
@@ -18024,17 +18024,17 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
        Client.resources().Clear();
        return Client.initResources();
       };
-      arg202=List.ofArray([Doc.Element("div",List.ofArray([AttrProxy.Create("class","form-group")]),List.ofArray([Doc.Input(List.ofArray([AttrProxy.Create("placeholder","Enter new resource name"),AttrProxy.Create("class","form-control"),AttrProxy.Create("style","max-width: 300px")]),newName)])),Doc.Element("div",ats2,List.ofArray([Doc.Button("Add",List.ofArray([AttrProxy.Create("class","btn btn-primary mr-3"),AttrModule.DynamicPred("disabled",View.Map(function(v)
+      arg202=List.ofArray([Doc.Element("div",List.ofArray([AttrProxy.Create("class","form-group my-3")]),List.ofArray([Doc.Input(List.ofArray([AttrProxy.Create("placeholder","Enter new resource name"),AttrProxy.Create("class","form-control"),AttrProxy.Create("style","max-width: 300px")]),newName)])),Doc.Element("div",ats2,List.ofArray([Doc.Button("Add",List.ofArray([AttrProxy.Create("class","btn btn-primary mx-3 my-3"),AttrModule.DynamicPred("disabled",View.Map(function(v)
       {
        return Strings.IsNullOrWhiteSpace(v);
-      },newName.get_View()),arg002)]),arg203),Doc.Button("Remove",List.ofArray([AttrProxy.Create("class","btn btn-warning mr-3"),AttrModule.DynamicPred("disabled",View.Map(function(v)
+      },newName.get_View()),arg002)]),arg203),Doc.Button("Remove",List.ofArray([AttrProxy.Create("class","btn btn-warning mx-3 my-3"),AttrModule.DynamicPred("disabled",View.Map(function(v)
       {
        return Strings.IsNullOrWhiteSpace(v);
-      },newName.get_View()),arg003)]),arg204),Doc.Button("Reset to original",List.ofArray([AttrProxy.Create("class","btn btn-danger")]),arg205)]))]);
+      },newName.get_View()),arg003)]),arg204),Doc.Button("Reset to original",List.ofArray([AttrProxy.Create("class","btn btn-danger mx-3 my-3")]),arg205)]))]);
       Doc.RunById("resources",Doc.Element("div",ats,List.ofArray([Doc.Convert(function(resource)
       {
        var ats1,arg00,arg10,arg20,arg001,arg101,arg201;
-       ats1=List.ofArray([AttrProxy.Create("style","height: 2em;")]);
+       ats1=List.ofArray([AttrProxy.Create("class","row my-1")]);
        arg00=function(r)
        {
         return r.Level;
@@ -18067,13 +18067,13 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
         };
        };
        arg201=resource.Name;
-       return Doc.Element("div",ats1,List.ofArray([Doc.Element("div",List.ofArray([AttrProxy.Create("style","width: 100px; display: inline-block; margin: 0 5px;")]),List.ofArray([Doc.TextNode(resource.Name)])),Doc.Select(List.ofArray([AttrProxy.Create("style","width: 100px; margin: 0 5px;")]),function(value)
+       return Doc.Element("div",ats1,List.ofArray([Doc.Element("div",List.ofArray([AttrProxy.Create("class","col-4")]),List.ofArray([Doc.TextNode(resource.Name)])),Doc.Element("div",List.ofArray([AttrProxy.Create("class","col-4")]),List.ofArray([Doc.Select(List.ofArray([AttrProxy.Create("class","form-control")]),function(value)
        {
         return Global.String(value);
-       },Level.get_All(),Client.resources().LensInto(arg00,arg10,arg20)),Doc.Select(List.ofArray([AttrProxy.Create("style","width: 100px; margin: 0 5px;")]),function(value)
+       },Level.get_All(),Client.resources().LensInto(arg00,arg10,arg20))])),Doc.Element("div",List.ofArray([AttrProxy.Create("class","col-4")]),List.ofArray([Doc.Select(List.ofArray([AttrProxy.Create("class","form-control")]),function(value)
        {
         return Global.String(value);
-       },Continent.get_All(),Client.resources().LensInto(arg001,arg101,arg201))]));
+       },Continent.get_All(),Client.resources().LensInto(arg001,arg101,arg201))]))]));
       },x),Doc.Element("form",[],arg202)])));
       x1=Client.resources().get_View();
       return Doc.RunById("result",Doc.BindView(function(resources)
@@ -18358,7 +18358,7 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
          $:0
         }),
         Continent:Runtime.New(Continent,{
-         $:0
+         $:2
         })
        });
       },
@@ -18370,7 +18370,7 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
          $:2
         }),
         Continent:Runtime.New(Continent,{
-         $:0
+         $:2
         })
        });
       },
@@ -18382,7 +18382,7 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
          $:1
         }),
         Continent:Runtime.New(Continent,{
-         $:0
+         $:2
         })
        });
       }
