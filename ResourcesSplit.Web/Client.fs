@@ -17,17 +17,17 @@ module Domain =
             static member Green name = 
                 { Name = name
                   Level = Green
-                  Continent = Asia }
+                  Continent = Pacific }
 
             static member Yellow name = 
                 { Name = name
                   Level = Yellow
-                  Continent = Asia }
+                  Continent = Pacific }
                   
             static member Red name = 
                 { Name = name
                   Level = Red
-                  Continent = Asia }
+                  Continent = Pacific }
 
     and Level =
         | Green
@@ -150,19 +150,25 @@ module Client =
             newName.Value <- ""
 
         divAttr
-            [ attr.style "margin: 15px 0" ]
+            [ attr.``class`` "container-fluid"]
             [ resources.View
               |> Doc.BindSeqCached (fun resource ->
                 divAttr
-                    [ attr.style "height: 2em;" ]
-                    [ divAttr [ attr.style "width: 100px; display: inline-block; margin: 0 5px;" ] [ text resource.Name ]
-                      Doc.Select [ attr.style "width: 100px; margin: 0 5px;" ] string Level.All (resources.LensInto (fun r -> r.Level) (fun r l -> { r with Level = l }) resource.Name)
-                      Doc.Select [ attr.style "width: 100px; margin: 0 5px;" ] string Continent.All (resources.LensInto (fun r -> r.Continent) (fun r c -> { r with Continent = c }) resource.Name)
-                ])
+                    [ attr.``class`` "row my-1" ]
+                    [ divAttr
+                        [ attr.``class`` "col-4" ]
+                        [ text resource.Name ]
+                      divAttr
+                        [ attr.``class`` "col-4" ]
+                        [ Doc.Select [ attr.``class`` "form-control" ] string Level.All (resources.LensInto (fun r -> r.Level) (fun r l -> { r with Level = l }) resource.Name) ]
+                      divAttr
+                        [ attr.``class`` "col-4" ]
+                        [ Doc.Select [ attr.``class`` "form-control" ] string Continent.All (resources.LensInto (fun r -> r.Continent) (fun r c -> { r with Continent = c }) resource.Name) ]
+                    ])
 
               form
                 [ divAttr
-                    [ attr.``class`` "form-group" ] 
+                    [ attr.``class`` "form-group my-3" ] 
                     [ Doc.Input 
                         [ attr.placeholder "Enter new resource name"
                           attr.``class`` "form-control"
@@ -170,18 +176,18 @@ module Client =
                         newName ]
                   divAttr 
                     [ attr.``class`` "mt-3" ]
-                    [ Doc.Button "Add" 
-                        [ attr.``class`` "btn btn-primary mr-3"
+                    [ Doc.Button "Add"
+                        [ attr.``class`` "btn btn-primary mx-3 my-3"
                           attr.disabledDynPred (View.Const "true") (newName.View |> View.Map (fun v -> String.IsNullOrWhiteSpace v)) ] 
                         (fun () -> resources.Add (Resource.Green newName.Value); reset())
 
                       Doc.Button "Remove" 
-                        [ attr.``class`` "btn btn-warning mr-3"
+                        [ attr.``class`` "btn btn-warning mx-3 my-3"
                           attr.disabledDynPred (View.Const "true") (newName.View |> View.Map (fun v -> String.IsNullOrWhiteSpace v)) ] 
                         (fun () -> resources.RemoveByKey newName.Value; reset()) 
                       
                       Doc.Button "Reset to original" 
-                        [ attr.``class`` "btn btn-danger"] 
+                        [ attr.``class`` "btn btn-danger mx-3 my-3"] 
                         (fun () -> resources.Clear(); initResources()) ] ] ]
         |> Doc.RunById "resources"
 
