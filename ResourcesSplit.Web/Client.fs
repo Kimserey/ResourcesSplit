@@ -95,26 +95,25 @@ module Domain =
           Resource.Green "Perfect"
           Resource.Green "Boots"
           Resource.Green "Slevin"
-          Resource.Green "Pawlik"
-          
           Resource.Yellow "Ethan"
           Resource.Yellow "Bx"
           Resource.Yellow "Azeda"
-          Resource.Yellow "Rdwing"
-          Resource.Yellow "Wartech"
           Resource.Yellow "Adodd"
           Resource.Yellow "Jawilki"
-          Resource.Yellow "Johnjohn"
-          
-          Resource.Red "Bongval"
-          Resource.Red "Ssumit"
           Resource.Red "Che"
           Resource.Red "Felichque"
           Resource.Red "Wong"
           Resource.Red "Ultraduck"
           Resource.Red "Adiam"
-          Resource.Red "Atta"
-          Resource.Red "Rome" ]
+          Resource.Red "Suplex"
+          Resource.Red "Ugotowned"
+          Resource.Red "Aisn"
+          Resource.Red "Dwb"
+          Resource.Red "Sirjokerloco"
+          Resource.Red "Skulls"
+          Resource.Red "Unknown"
+          Resource.Red "Karin"
+          Resource.Red "Jb163" ]
 
 [<JavaScript>]
 module Layout =

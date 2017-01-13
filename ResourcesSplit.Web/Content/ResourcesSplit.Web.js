@@ -17998,7 +17998,7 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
      },
      main:Runtime.Field(function()
      {
-      var newName,reset,ats,x,arg202,ats2,arg203,arg002,arg204,arg205,x1;
+      var newName,reset,ats,x,arg202,ats2,arg203,arg002,arg204,arg003,arg205,x1;
       newName=Var.Create("");
       reset=function()
       {
@@ -18018,6 +18018,7 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
        Client.resources().RemoveByKey(Var.Get(newName));
        return reset(null);
       };
+      arg003=View1.Const("true");
       arg205=function()
       {
        Client.resources().Clear();
@@ -18026,7 +18027,10 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
       arg202=List.ofArray([Doc.Element("div",List.ofArray([AttrProxy.Create("class","form-group")]),List.ofArray([Doc.Input(List.ofArray([AttrProxy.Create("placeholder","Enter new resource name"),AttrProxy.Create("class","form-control"),AttrProxy.Create("style","max-width: 300px")]),newName)])),Doc.Element("div",ats2,List.ofArray([Doc.Button("Add",List.ofArray([AttrProxy.Create("class","btn btn-primary mr-3"),AttrModule.DynamicPred("disabled",View.Map(function(v)
       {
        return Strings.IsNullOrWhiteSpace(v);
-      },newName.get_View()),arg002)]),arg203),Doc.Button("Remove",List.ofArray([AttrProxy.Create("class","btn btn-warning mr-3")]),arg204),Doc.Button("Reset to original",List.ofArray([AttrProxy.Create("class","btn btn-danger")]),arg205)]))]);
+      },newName.get_View()),arg002)]),arg203),Doc.Button("Remove",List.ofArray([AttrProxy.Create("class","btn btn-warning mr-3"),AttrModule.DynamicPred("disabled",View.Map(function(v)
+      {
+       return Strings.IsNullOrWhiteSpace(v);
+      },newName.get_View()),arg003)]),arg204),Doc.Button("Reset to original",List.ofArray([AttrProxy.Create("class","btn btn-danger")]),arg205)]))]);
       Doc.RunById("resources",Doc.Element("div",ats,List.ofArray([Doc.Convert(function(resource)
       {
        var ats1,arg00,arg10,arg20,arg001,arg101,arg201;
@@ -18385,7 +18389,7 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
      }),
      initResources:Runtime.Field(function()
      {
-      return List.ofArray([Resource.Green("Jlaw"),Resource.Green("Eyeball"),Resource.Green("Ah fat"),Resource.Green("Nkemp"),Resource.Green("Roush"),Resource.Green("Lunt"),Resource.Green("Dys"),Resource.Green("Grill"),Resource.Green("Perfect"),Resource.Green("Boots"),Resource.Green("Slevin"),Resource.Green("Pawlik"),Resource.Yellow("Ethan"),Resource.Yellow("Bx"),Resource.Yellow("Azeda"),Resource.Yellow("Rdwing"),Resource.Yellow("Wartech"),Resource.Yellow("Adodd"),Resource.Yellow("Jawilki"),Resource.Yellow("Johnjohn"),Resource.Red("Bongval"),Resource.Red("Ssumit"),Resource.Red("Che"),Resource.Red("Felichque"),Resource.Red("Wong"),Resource.Red("Ultraduck"),Resource.Red("Adiam"),Resource.Red("Atta"),Resource.Red("Rome")]);
+      return List.ofArray([Resource.Green("Jlaw"),Resource.Green("Eyeball"),Resource.Green("Ah fat"),Resource.Green("Nkemp"),Resource.Green("Roush"),Resource.Green("Lunt"),Resource.Green("Dys"),Resource.Green("Grill"),Resource.Green("Perfect"),Resource.Green("Boots"),Resource.Green("Slevin"),Resource.Yellow("Ethan"),Resource.Yellow("Bx"),Resource.Yellow("Azeda"),Resource.Yellow("Adodd"),Resource.Yellow("Jawilki"),Resource.Red("Che"),Resource.Red("Felichque"),Resource.Red("Wong"),Resource.Red("Ultraduck"),Resource.Red("Adiam"),Resource.Red("Suplex"),Resource.Red("Ugotowned"),Resource.Red("Aisn"),Resource.Red("Dwb"),Resource.Red("Sirjokerloco"),Resource.Red("Skulls"),Resource.Red("Unknown"),Resource.Red("Karin"),Resource.Red("Jb163")]);
      })
     },
     Layout:{
