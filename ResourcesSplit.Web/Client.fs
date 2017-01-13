@@ -123,10 +123,6 @@ module Client =
                   Resource.Red "Rome" ]
         
         let newName = Var.Create ""
-
-        pre [ text "Place a resource where there is the less resources based on Level. When groups have equal number of resources and decision cannot be made, place a resource where there is the less resource of the same Continent" ]
-        |> Doc.RunById "explanation"
-
             
         divAttr
             [ attr.style "margin: 15px 0" ]

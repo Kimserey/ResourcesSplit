@@ -17997,7 +17997,7 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
       resources=ListModel.Create(arg00,arg10);
       newName=Var.Create("");
       arg20=List.ofArray([Doc.TextNode("Place a resource where there is the less resources based on Level. When groups have equal number of resources and decision cannot be made, place a resource where there is the less resource of the same Continent")]);
-      Doc.RunById("explanation",Doc.Element("pre",[],arg20));
+      Doc.RunById("explanation",Doc.Element("p",[],arg20));
       ats=List.ofArray([AttrProxy.Create("style","margin: 15px 0")]);
       x=resources.get_View();
       arg201=function()

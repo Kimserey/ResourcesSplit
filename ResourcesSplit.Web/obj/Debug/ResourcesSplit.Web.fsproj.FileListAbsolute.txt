@@ -9,17 +9,5 @@ C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\WebSharper.UI.Next.dll
 C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\WebSharper.UI.Next.Templating.dll
 C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\IntelliFactory.Xml.xml
 C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\FSharp.Core.xml
-C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\WebSharper.Collections.xml
-C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\WebSharper.Control.xml
-C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\WebSharper.Core.xml
-C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\WebSharper.Core.JavaScript.xml
-C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\WebSharper.Html.Client.xml
-C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\WebSharper.Html.Server.xml
-C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\WebSharper.InterfaceGenerator.xml
-C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\WebSharper.JavaScript.xml
-C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\WebSharper.JQuery.xml
-C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\WebSharper.Main.xml
-C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\WebSharper.Sitelets.xml
 C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\WebSharper.UI.Next.xml
 C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\WebSharper.UI.Next.Templating.xml
-C:\Projects\ResourcesSplit\ResourcesSplit.Web\bin\WebSharper.Web.xml
